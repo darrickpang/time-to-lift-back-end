@@ -1,4 +1,4 @@
 class CoachSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :id, :name, :age, :location, :students, :class_sessions, :gyms
+  attributes :id, :name, :age, :location
 end

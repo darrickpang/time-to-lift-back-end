@@ -1,6 +1,8 @@
 class Student < ApplicationRecord
     has_many :class_lists 
     has_many :coach_students
+    has_secure_password
+    has_secure_password :recovery_password, validations: false
     
     has_many :coaches, through: :coach_students
     has_many :class_sessions, through: :class_lists

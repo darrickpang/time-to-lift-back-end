@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
     before_action :authorized, only: [:persist]
-
+    
     def new
         student = Student.new
     end
@@ -16,10 +16,10 @@ class StudentsController < ApplicationController
     end
 
     def login
-        student = student.find_by(name: params[:name])
+        student = Student.find_by(name: params[:name])
         if student && student.authenticate(params[:password])
             token = encode_token({student_id: student.id})
-            render json: {student: studentSerializer.new(student), token: token}
+            render json: {student: StudentSerializer.new(student), token: token}
         else 
             render json: {error: 'Incorrect student or Password'}
         end

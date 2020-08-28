@@ -6,5 +6,10 @@ Rails.application.routes.draw do
   resources :class_sessions
   resources :students
   resources :coaches
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  post '/student_login', to: 'students#login'
+  get '/student_persist', to: 'students#persist'
+
+  post '/coach_login', to: 'coaches#login'
+  get '/coach_persist', to: 'coaches#persist'
 end

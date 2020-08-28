@@ -2,7 +2,7 @@ class CoachesController < ApplicationController
     before_action :authorized, only: [:persist]
 
     def new
-        coach = coach.new
+        coach = Coach.new
     end
 
     def create 
@@ -31,7 +31,7 @@ class CoachesController < ApplicationController
     end
 
     def show
-        coach = coach.find(params[:id])
+        coach = Coach.find(params[:id])
         render json: CoachSerializer.new(coach)
     end
 
