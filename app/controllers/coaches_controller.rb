@@ -1,5 +1,5 @@
 class CoachesController < ApplicationController
-    before_action :authorized, only: [:persist]
+    before_action :authorized_coach, only: [:persist]
 
     def new
         coach = Coach.new
@@ -8,8 +8,8 @@ class CoachesController < ApplicationController
     def create 
         coach = Coach.create(coach_params)
         if coach.valid?
-            token = encode_token({coach_id: coach.id})
-            render json: {coach: CoachSerializer.new(coach), token: token}
+            coach_token = encode_token({coach_id: coach.id})
+            render json: {coach: CoachSerializer.new(coach), coach_token: coach_token}
         else
             render json: {error: 'Unable to Create coach'}
         end
@@ -18,16 +18,16 @@ class CoachesController < ApplicationController
     def login
         coach = Coach.find_by(name: params[:name])
         if coach && coach.authenticate(params[:password])
-            token = encode_token({coach_id: coach.id})
-            render json: {coach: CoachSerializer.new(coach), token: token}
+            coach_token = encode_token({coach_id: coach.id})
+            render json: {coach: CoachSerializer.new(coach), coach_token: coach_token}
         else 
             render json: {error: 'Incorrect coach or Password'}
         end
     end
 
     def persist
-        token = encode_token({coach_id: @coach.id})
-        render json: {coach: CoachSerializer.new(@coach), token: token}
+        coach_token = encode_token({coach_id: @coach.id})
+        render json: {coach: CoachSerializer.new(@coach), coach_token: coach_token}
     end
 
     def show
