@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :student_dates
   resources :gym_coaches
   resources :coach_students
   resources :class_lists
