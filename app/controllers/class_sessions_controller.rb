@@ -30,6 +30,6 @@ class ClassSessionsController < ApplicationController
 
     private
     def class_session_params
-        params.require(:class_session).permit(:name, :location, :duration)
+        params.require(:class_session).permit(:name, :time, :duration, :date, :gym_id, :coach_id)
     end
 end

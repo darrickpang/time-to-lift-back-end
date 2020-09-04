@@ -1,6 +1,5 @@
 class GymsController < ApplicationController
     def index 
-        # byebug
         gyms = Gym.all
         render json: gyms
     end
