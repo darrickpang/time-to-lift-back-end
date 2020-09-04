@@ -1,5 +1,6 @@
 class GymsController < ApplicationController
     def index 
+        # byebug
         gyms = Gym.all
         render json: gyms
     end
@@ -15,7 +16,7 @@ class GymsController < ApplicationController
 
     def show
         gym = Gym.find(params[:id])
-        render json: gym
+        render json: GymSerializer.new(gym)
     end
 
     def edit
