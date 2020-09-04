@@ -1,7 +1,7 @@
 class ClassSessionsController < ApplicationController
     def index 
         class_sessions = ClassSession.all
-        render json: class_sessions
+        render json: ClassSessionSerializer.new(class_sessions)
     end
 
     def new
