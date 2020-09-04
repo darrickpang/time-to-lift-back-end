@@ -1,4 +1,4 @@
 class GymSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :address
+  attributes :name, :address, :city, :zip_code, :class_sessions, :coaches
 end

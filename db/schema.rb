@@ -21,7 +21,8 @@ ActiveRecord::Schema.define(version: 2020_09_02_213627) do
 
   create_table "class_sessions", force: :cascade do |t|
     t.string "name"
-    t.string "location"
+    t.string "time"
+    t.string "date"
     t.string "duration"
     t.integer "coach_id"
     t.integer "gym_id"

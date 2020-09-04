@@ -1,6 +1,9 @@
 class CoachesController < ApplicationController
     before_action :authorized_coach, only: [:persist]
-
+    def index
+        coaches = Coach.all 
+        render json: coaches
+    end
     def new
         coach = Coach.new
     end
