@@ -13,6 +13,25 @@ class StudentDatesController < ApplicationController
         render json: student_date
     end
 
+    def show
+        student_date = StudentDate.find(params[:id])
+        render json: student_date
+    end
+
+    def edit
+        student_date = StudentDate.find(params[:id])
+    end
+
+    def update 
+        student_date = StudentDate.find(params[:id])
+        student_date.update(student_date_params)
+        render json: student_date
+    end
+
+    def destroy 
+        student_date = StudentDate.find(params[:id]).destroy
+    end 
+
     private
     def student_date_params
         params.require(:student_date).permit(:class_name, :date, :student_id)
