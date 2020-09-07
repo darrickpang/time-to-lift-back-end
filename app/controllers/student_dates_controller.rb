@@ -29,7 +29,10 @@ class StudentDatesController < ApplicationController
     end
 
     def destroy 
-        student_date = StudentDate.find(params[:id]).destroy
+        student_date = StudentDate.find(params[:id])
+        tempDate = student_date
+        student_date.destroy
+        render json: tempDate
     end 
 
     private
