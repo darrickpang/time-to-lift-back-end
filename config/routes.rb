@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  resources :friend_requests
   resources :student_dates
   # resources :gym_coaches
   # resources :coach_students
   resources :class_lists, only: [:index, :show, :create, :edit, :update]
   resources :gyms, only: [:index, :show, :create, :edit, :update]
-  resources :class_sessions
+  resources :class_sessions, only: [:index, :show, :create, :edit, :update]
   resources :students, only: [:show, :create, :edit, :update, :destroy]
   resources :coaches, only: [:show, :create, :edit, :update, :destroy]
   

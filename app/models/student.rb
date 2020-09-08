@@ -8,11 +8,13 @@ class Student < ApplicationRecord
     has_many :coaches, through: :coach_students
     has_many :class_sessions, through: :class_lists
 
-    has_and_belongs_to_many :friends,
-        class_name: "Student", 
-        join_table:  :friends, 
-        foreign_key: :student_id, 
-        association_foreign_key: :friend_student_id
+    has_many :friend_requests_as_requestor,
+        foreign_key: :requestor_id,
+        class_name: :FriendRequest 
+
+    has_many :friend_requests_as_receiver,
+        foreign_key: :receiver_id,
+        class_name: :FriendRequest
 
     validates :name, uniqueness: true
     validates :name, :age, :location, presence: true

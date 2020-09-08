@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_02_213627) do
+ActiveRecord::Schema.define(version: 2020_09_08_171959) do
 
   create_table "class_lists", force: :cascade do |t|
     t.integer "class_session_id"
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 2020_09_02_213627) do
     t.string "password_digest"
     t.string "location"
     t.integer "age"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "friend_requests", force: :cascade do |t|
+    t.integer "requestor_id"
+    t.integer "receiver_id"
+    t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
