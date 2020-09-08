@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :friend_requests
+  resources :friend_requests, only: [:show, :create, :edit, :update]
   resources :student_dates
   # resources :gym_coaches
   # resources :coach_students
