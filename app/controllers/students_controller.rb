@@ -4,6 +4,7 @@ class StudentsController < ApplicationController
         students = Student.all 
         render json: students
     end 
+
     def new
         student = Student.new
     end
@@ -32,10 +33,6 @@ class StudentsController < ApplicationController
         token = encode_token({student_id: @student.id})
         render json: {student: StudentSerializer.new(@student), token: token}
     end
-
-    # def self.adult_age
-    #     Student.adult_age 
-    # end
 
     def show
         student = Student.find(params[:id])
