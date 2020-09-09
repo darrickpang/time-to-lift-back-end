@@ -1,6 +1,7 @@
 class FriendRequestsController < ApplicationController
     def index 
         friend_requests = FriendRequest.all
+        render json: friend_requests
     end 
 
     def new
@@ -8,7 +9,6 @@ class FriendRequestsController < ApplicationController
     end
 
     def create 
-        # byebug
         friend_request = FriendRequest.create(friend_request_params)
         render json: friend_request
     end
@@ -30,6 +30,6 @@ class FriendRequestsController < ApplicationController
 
     private
     def friend_request_params
-        params.require(:friend_request).permit(:requestor_id, :receiver_id, :requestor_name, :status)
+        params.require(:friend_request).permit(:requestor_id, :receiver_id, :requestor_name, :receiver_name, :status)
     end
 end

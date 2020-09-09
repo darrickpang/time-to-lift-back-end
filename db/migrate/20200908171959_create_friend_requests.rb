@@ -5,7 +5,7 @@ class CreateFriendRequests < ActiveRecord::Migration[6.0]
       t.integer :receiver_id
       t.string :status
       t.string :requestor_name
-
+      t.string :receiver_name
       t.timestamps
     end
   end
