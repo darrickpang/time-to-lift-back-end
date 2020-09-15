@@ -4,6 +4,7 @@ class Student < ApplicationRecord
     has_secure_password
     has_secure_password :recovery_password, validations: false
     has_many :student_dates
+    has_and_belongs_to_many :conversations, dependent: :destroy
     
     has_many :coaches, through: :coach_students
     has_many :class_sessions, through: :class_lists

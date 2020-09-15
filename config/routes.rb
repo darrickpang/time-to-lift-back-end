@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :conversations
+  resources :messages
   resources :friend_requests, only: [:index, :show, :create, :edit, :update]
   resources :student_dates
   # resources :gym_coaches
@@ -14,4 +16,6 @@ Rails.application.routes.draw do
 
   post '/coach_login', to: 'coaches#login'
   get '/coach_persist', to: 'coaches#persist'
+
+  mount ActionCable.server => '/cable'
 end
