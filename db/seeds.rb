@@ -26,3 +26,6 @@ ClassSession.create(name: 'swimming', time: '11:00 am', date: '2020-09-11', dura
 StudentDate.create(student_id: 1, date: '2020-09-09', class_name: 'strength training')
 StudentDate.create(student_id: 1, date: '2020-09-10', class_name: 'running')
 StudentDate.create(student_id: 1, date: '2020-09-11', class_name: 'swimming')
+StudentDate.create(student_id: 1, date: '2017-05-31', class_name: 'PST')
+StudentDate.create(student_id: 1, date: '2017-06-07', class_name: 'PST')
+StudentDate.create(student_id: 1, date: '2017-06-14', class_name: 'PST')

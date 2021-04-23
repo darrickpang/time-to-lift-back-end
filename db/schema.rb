@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_08_171959) do
+ActiveRecord::Schema.define(version: 2020_09_14_235950) do
 
   create_table "class_lists", force: :cascade do |t|
     t.integer "class_session_id"
@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(version: 2020_09_08_171959) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "friend_requests", force: :cascade do |t|
     t.integer "requestor_id"
     t.integer "receiver_id"
@@ -76,6 +82,12 @@ ActiveRecord::Schema.define(version: 2020_09_08_171959) do
     t.string "address"
     t.string "city"
     t.integer "zip_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "conversation_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
